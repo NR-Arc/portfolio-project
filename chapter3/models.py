@@ -24,7 +24,7 @@ class performance(Base):
     __tablename__ = "performance"
 
     performance_id = Column(Integer, primary_key=True,index=True)
-    week_number = Column(String,nulable=False)
+    week_number = Column(String, nullable=False)
     fantasy_points = Column(Float, nullable=False)
     last_changed_date = Column(Date, nullable=False)
 
