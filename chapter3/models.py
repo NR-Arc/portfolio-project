@@ -34,7 +34,7 @@ class performance(Base):
 class League(Base):
     __tablename__ = "league"
 
-    league_id = Column(in,primary_key=True,index=True)
+    league_id = Column(int,primary_key=True,index=True)
     league_name = Column(String, nullable=False)
     scoring_type = Column(String, nullable=False)
     last_changed_date = Column(Date, nullable=False)
