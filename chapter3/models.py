@@ -17,10 +17,10 @@ class Player(Base):
     performances = relationship("Performance", back_populates="player")
 
     #Many-to-many relationship between Player and Team tables
-    team = relationship("Team",secondary="tean_player",
+    team = relationship("Team",secondary="team_player",
                         back_populates="players")
 
-class performance(Base):
+class Performance(Base):
     __tablename__ = "performance"
 
     performance_id = Column(Integer, primary_key=True,index=True)
