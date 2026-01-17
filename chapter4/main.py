@@ -42,12 +42,14 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/")
+@app.get("/",
+        tags=["analytics"])
 async def root():
     return {"message": "API health check successful"}
 
 
-@app.get("/v0/players/", response_model=list[schemas.Player])
+@app.get("/v0/players/", response_model=list[schemas.Player],
+        tags=["player"])
 def read_players(skip: int = 0, 
                  limit: int = 100, 
                  minimum_last_changed_date: date = None, 
@@ -76,7 +78,8 @@ def read_player(player_id: int,
     return player
 
 @app.get("/v0/performances/", 
-         response_model=list[schemas.Performance])
+         response_model=list[schemas.Performance],
+        tags=["scoring"])
 def read_performances(skip: int = 0, 
                 limit: int = 100, 
                 minimum_last_changed_date: date = None, 
